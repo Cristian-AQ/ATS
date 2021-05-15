@@ -15,7 +15,6 @@ void insertar(Nodo *&pila,int n){
     nuevo->dato=n;
     nuevo->sig=pila;
     pila=nuevo;
-
     cout<<"SE AGREGO: "<<n<<endl; 
 }
 //void eliminar(Nodo *&pila,int &n){
@@ -26,7 +25,6 @@ void eliminar(Nodo *&pila){
     pila = aux->sig;
     delete aux;
     cout<<"SE ELIMINO: "<<n<<endl;
-
 }
 int main(int argc, char const *argv[])
 {
@@ -34,11 +32,10 @@ int main(int argc, char const *argv[])
     Nodo *pila = NULL;
     insertar(pila,15);
     insertar(pila,10);
-    while (pila!=NULL)
+    while (pila!=NULL)//debido al ciclo se elimina todo
     {
         eliminar(pila);
     }
-    
     return 0;
 }
 
