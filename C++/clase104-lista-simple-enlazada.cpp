@@ -85,6 +85,20 @@ bool eliminar(Nodo *&lista,int n){
     }
     return flag;
 }
+
+void eliminar_todos(Nodo *&lista){
+    Nodo *borrar=lista;
+    Nodo *aux=NULL;
+
+    while(borrar!=NULL){
+        if(aux==NULL){
+            lista=lista->sig;
+            delete(borrar);
+            borrar=lista;
+        }
+    }
+}
+
 void menu(){
     int op,n;
     Nodo *lista=NULL;
@@ -95,6 +109,7 @@ void menu(){
     cout<<"2.MOSTRAR\n";
     cout<<"3.BUSCAR\n";
     cout<<"4.ELIMINAR\n";
+    cout<<"5.ELIMINAR TODO\n";
     cout<<"0.SALIR\n";
     cout<<"INGRESE UNA OPCION: ";
     cin>>op;
@@ -120,12 +135,16 @@ void menu(){
             system("pause");
             break;
         case 4:
-            //mostrar(lista);
             cout<<"INGRESE UN ELEMENTO A ELIMINAR: ";
             cin>>n;
             if(eliminar(lista,n)==false){
                 cout<<"NO SE ENCONTRO ELEMENTOS\n";
             }
+            system("pause");
+            break;
+        case 5:
+            eliminar_todos(lista);
+            cout<<"SE ELIMINARON TODOS LOS ELEMENTOS\n";
             system("pause");
             break;
         }
